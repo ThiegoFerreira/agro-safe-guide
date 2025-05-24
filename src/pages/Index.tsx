@@ -4,6 +4,7 @@ import WhatsAppSimulation from '../components/WhatsAppSimulation';
 import IagroApp from '../components/IagroApp';
 import Quiz from '../components/Quiz';
 import Navigation from '../components/Navigation';
+import MobileContainer from '../components/MobileContainer';
 
 type Screen = 'whatsapp' | 'iagro' | 'quiz' | 'result';
 
@@ -65,15 +66,17 @@ const Index = () => {
   };
 
   return (
-    <div className="relative">
-      {renderScreen()}
-      {currentScreen !== 'result' && (
-        <Navigation 
-          currentScreen={currentScreen} 
-          onScreenChange={handleScreenChange} 
-        />
-      )}
-    </div>
+    <MobileContainer>
+      <div className="relative h-screen">
+        {renderScreen()}
+        {currentScreen !== 'result' && (
+          <Navigation 
+            currentScreen={currentScreen} 
+            onScreenChange={handleScreenChange} 
+          />
+        )}
+      </div>
+    </MobileContainer>
   );
 };
 
